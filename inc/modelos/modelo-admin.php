@@ -64,7 +64,8 @@ if ($accion === 'login') {
         //Login correcto
         $respuesta = array(
           'respuesta' => 'correcto',
-          'nombre' => $nombre_usuario
+          'nombre' => $nombre_usuario,
+          'tipo' => $accion
         );
       } else {
         //Login incorrecto, enviar error

@@ -1,3 +1,4 @@
+//jshint esversion: 6
 eventListeners();
 
 function eventListeners() {
@@ -47,7 +48,19 @@ function validarRegistro(e) {
                   title: 'Usuario creado',
                   text: 'El usuario se creó correctamente',
                 });
-              } else {
+              } else if(respuesta.tipo === 'login'){
+                Swal.fire({
+                  type: 'success',
+                  title: 'Usuario y contraseña correctos',
+                  text: 'Presiona OK para continuar',
+                })
+                .then(resultado => {
+                  if(resultado.value){
+                    window.location.href = 'index.php';
+                  }
+                });
+              }
+            }else {
                 // Si hubo algún console.error
                 Swal.fire({
                   type: 'error',
@@ -55,7 +68,6 @@ function validarRegistro(e) {
                   text: 'Hubo un error',
                 });
               }
-            }
           }
         };
 
