@@ -36,9 +36,28 @@ function validarRegistro(e) {
 
         xhr.onload = function(){
           if(this.status === 200) {
-            console.log(JSON.parse(xhr.responseText));
-          }
-        };
+            var respuesta = JSON.parse(xhr.responseText);
+
+            // Si la respuesta es correcta
+            if(respuesta.respuesta === 'correcto'){
+              // si es un nuevo usuarios
+              if(respuesta.tipo === 'crear'){
+                Swal.fire({
+                  type: 'success',
+                  title: 'Usuario creado',
+                  text: 'El usuario se creó correctamente',
+                });
+              }
+            } else {
+                // Si hubo algún console.error
+                Swal.fire({
+                  type: 'error',
+                  title: 'Error',
+                  text: 'Hubo un error',
+                });
+              }
+            }
+          };
 
         //Enviar la petición
         xhr.send(datos);
