@@ -1,27 +1,23 @@
 <?php
-  //die (json_encode($_POST));   comprobar
 
-  $accion = $_POST['accion'];
-  $password = $_POST['password'];
-  $usuario = $_POST['usuario'];
+//die(json_encode($_POST['accion'])); //comprobar
 
-  if($accion === 'crear') {
-    // Código para crear los administradores
-    //hashear password
-    $opciones = array(
-      'cost' => 12
-    );
-    $hash_password = password_hash($password, PASSWORD_BCRYPT, $opciones);
+$accion = $_POST['accion'];
+$password = $_POST['password'];
+$usuario = $_POST['usuario'];
 
-    $respuesta = array(
-      'pass' => $hash_password
-    );
+if ($accion === 'crear') {
+  // Código para logear administradores
 
-    echo json_encode($respuesta);
+  // hashear passwords
+  $opciones = array(
+    'cost' => 12
+  );
+  $hash_password = password_hash($password, PASSWORD_BCRYPT, $opciones);
 
-  }
+  $respuesta = array(
+    'pass' => $hash_password
+  );
 
-
-  if($accion === 'login') {
-    // Código para que loguee
-  }
+  echo json_encode($respuesta);
+}

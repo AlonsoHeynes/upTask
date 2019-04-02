@@ -26,19 +26,23 @@ function validarRegistro(e) {
         datos.append('password', password);
         datos.append('accion', tipo);
 
-        //Crear llamado AJAX
+        //Crear el llamado AJAX
+
         var xhr = new XMLHttpRequest();
 
         //abrir la conexión
         xhr.open('POST', 'inc/modelos/modelo-admin.php', true);
-
         //retorno de datos
+
         xhr.onload = function(){
           if(this.status === 200) {
             console.log(JSON.parse(xhr.responseText));
           }
         };
+
         //Enviar la petición
         xhr.send(datos);
+
+
       }
     }
