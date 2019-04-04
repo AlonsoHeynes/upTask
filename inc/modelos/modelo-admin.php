@@ -61,6 +61,12 @@ if ($accion === 'login') {
     if($nombre_usuario){
       // Verificar si el password coincide
       if(password_verify($password, $pass_usuario)){
+        //Iniciar sesion
+        session_start();
+        $_SESSION['nombre'] = $usuario;
+        $_SESSION['id'] = $id_usuario;
+        $_SESSION['login'] = true;
+
         //Login correcto
         $respuesta = array(
           'respuesta' => 'correcto',

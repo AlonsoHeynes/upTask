@@ -1,6 +1,24 @@
 <?php
+  session_start();
   include 'inc/funciones/funciones.php';
   include 'inc/templates/header.php';
+
+
+
+  // echo "<pre>";   comprobar si dio clicl en cerrar sesión
+  // var_dump($_SESSION);
+  //
+  // echo "<hr>";
+  //
+  // var_dump($_GET);
+  // echo "</pre>";
+
+  if (isset($_GET['cerrar_sesion'])) {
+    $_SESSION = array();
+  }
+  var_dump($_SESSION);
+
+
 ?>
     <div class="contenedor-formulario">
         <h1>UpTask</h1>
