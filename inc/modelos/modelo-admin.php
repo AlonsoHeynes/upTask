@@ -38,7 +38,9 @@ if ($accion === 'crear') {
 
   } catch (Exception $e) {
     // En caso de error, tomar la excepción
-    $respuesta = array('pass' => $e->getMessage());
+    $respuesta = array(
+      'error' => $e->getMessage()
+    );
   }
 
   echo json_encode($respuesta);
