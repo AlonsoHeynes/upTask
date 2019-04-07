@@ -63,7 +63,7 @@ function guardarProyectoDB(nombreProyecto) {
           // Se creo un nuevo proyecto
           var nuevoProyecto = document.createElement('li');
           nuevoProyecto.innerHTML = `
-            <a href="index.php?id_respuesta=${id_proyecto}" id="${id_proyecto}">
+            <a href="index.php?id_proyecto=${id_proyecto}" id="${id_proyecto}">
               ${proyecto}
             </a>
           `;
